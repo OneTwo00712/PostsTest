@@ -84,18 +84,19 @@ export default {
       tags.value.splice(index, 1);
     }
 
-    function submitForm() {
-      if (!title.value || !body.value) return;
-      // Your create post logic goes here.
-      console.log("Submit post:", {
-        title: title.value,
-        body: body.value,
-        tags: tags.value,
+    let submitForm = async () => {
+      await fetch("http://localhost:3000/posts", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          title: title.value,
+          body: body.value,
+          tags: tags.value,
+        }),
       });
-      title.value = "";
-      body.value = "";
-      tags.value = [];
-    }
+    };
 
     return { title, body, tag, tags, addTag, removeTag, submitForm };
   },
