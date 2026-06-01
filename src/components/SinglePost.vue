@@ -13,7 +13,7 @@
       <router-link
         v-for="tag in post.tags"
         :key="tag"
-        :to="{ name: 'Tag', params: { tag } }"
+        :to="{ name: 'Tag', params: { tag: tag } }"
         class="tag-pill"
       >
         {{ tag }}
