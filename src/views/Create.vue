@@ -65,11 +65,13 @@
 
 <script>
 import { ref } from "vue";
+import { useRouter } from "vue-router";
 export default {
   setup() {
     const title = ref("");
     const body = ref("");
     const tag = ref("");
+    const router = useRouter();
     const tags = ref([]);
 
     function addTag() {
@@ -96,6 +98,7 @@ export default {
           tags: tags.value,
         }),
       });
+      router.push({ name: "home" });
     };
 
     return { title, body, tag, tags, addTag, removeTag, submitForm };

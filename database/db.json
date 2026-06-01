@@ -2,57 +2,30 @@
   "posts": [
     {
       "id": "1",
-      "title": "book1",
-      "body": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestiae sed laudantium deserunt, magni recusandae explicabo, hic iusto mollitia officia quasi facilis blanditiis maiores rerum non magnam dolorem facere at! Aut nulla porro ullam vel, blanditiis, sapiente dolore id esse velit suscipit possimus vero facere molestias dolorum pariatur! Fugiat obcaecati rem maiores iusto reprehenderit veniam quisquam atque optio exercitationem, repudiandae nemo mollitia quo sed cum. Amet eius cumque, architecto obcaecati a iste delectus illum, veritatis odit reprehenderit deleniti accusantium cupiditate nemo repellat quam id, eum veniam dignissimos fugit ab excepturi pariatur temporibus numquam libero. Optio inventore numquam, temporibus reiciendis officia voluptatibus.",
-      "author": "author1"
+      "title": "First Post",
+      "body": "This is the body of the first post.",
+      "tags": [
+        "vue",
+        "javascript"
+      ]
     },
     {
       "id": "2",
-      "title": "book2",
-      "body": "body2",
-      "author": "author2"
-    },
-    {
-      "id": "3",
-      "title": "book3",
-      "body": "body3",
-      "author": "author3"
-    },
-    {
-      "title": "Today is special",
-      "body": "cuz of you",
+      "title": "Second Post",
+      "body": "This is the body of the second post.",
       "tags": [
-        "pro tips",
-        "beginner lvl"
-      ],
-      "id": "4"
+        "composition-api",
+        "vue3"
+      ]
     },
     {
-      "title": "Today is special",
-      "body": "cuz of you",
+      "title": "third ",
+      "body": "shii it's secret\n\n",
       "tags": [
-        "pro tips",
-        "beginner lvl"
+        "vue",
+        "laravel"
       ],
-      "id": "zD1-0TUS61k"
-    },
-    {
-      "title": "Today is special",
-      "body": "cuz of you",
-      "tags": [
-        "pro tips",
-        "beginner lvl"
-      ],
-      "id": "UD6Dpd6PhaI"
-    },
-    {
-      "title": "Today is special",
-      "body": "cuz of you",
-      "tags": [
-        "pro tips",
-        "beginner lvl"
-      ],
-      "id": "OS0a3BXNRd0"
+      "id": "CSu9Yc4y4Z4"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
