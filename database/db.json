@@ -35,6 +35,14 @@
         "laravel"
       ],
       "id": "K3YLOzyWwz0"
+    },
+    {
+      "title": "news One",
+      "body": "body is hot ",
+      "tags": [
+        "Winner"
+      ],
+      "id": "vYaGtuXYOjo"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

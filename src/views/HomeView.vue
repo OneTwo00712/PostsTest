@@ -3,8 +3,13 @@
     <div v-if="error">
       <p>{{ error }}</p>
     </div>
-    <div v-if="posts.length > 0">
-      <PostsTitle :posts="posts" />
+    <div v-if="posts.length > 0" class="layout">
+      <div>
+        <PostsTitle :posts="posts" />
+      </div>
+      <div>
+        <TagCloud :post="posts" />
+      </div>
     </div>
     <div v-else>
       <Loading></Loading>
@@ -15,10 +20,11 @@
 <script>
 import PostsTitle from "../components/PostsTitle.vue";
 import Loading from "../components/Loading.vue";
+import TagCloud from "../components/TagCloud.vue";
 import getPosts from "../composables/getPosts";
 
 export default {
-  components: { PostsTitle, Loading },
+  components: { PostsTitle, Loading, TagCloud },
   setup() {
     let { posts, error, load } = getPosts();
     load();
@@ -61,5 +67,10 @@ export default {
   padding: 15px;
   border-radius: 8px;
   border: 1px solid #ff3f80;
+}
+.layout {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 40px;
 }
 </style>

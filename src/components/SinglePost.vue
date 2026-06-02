@@ -38,7 +38,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 .post-card {
   background: #ffffff;
   border: 1px solid #e2e8f0;
