@@ -8,19 +8,26 @@
 </template>
 
 <script>
-import { ref } from "vue";
+import { computed } from "vue";
 export default {
   props: ["post"],
   setup(props) {
-    let tags = ref([]);
-    props.post.forEach((post) => {
-      post.tags.forEach((tag) => {
-        tags.value.push(tag);
+    let uniqueTags = computed(() => {
+      const tags = [];
+
+      props.post.forEach((post) => {
+        if (!post.tags) return;
+
+        post.tags.forEach((tag) => {
+          tags.push(tag);
+        });
+      });
+
+      return tags.filter((tag, index, array) => {
+        return array.indexOf(tag) === index;
       });
     });
-    let uniqueTags = tags.value.filter((tag, index, array) => {
-      return array.indexOf(tag) === index;
-    });
+
     return { uniqueTags };
   },
 };

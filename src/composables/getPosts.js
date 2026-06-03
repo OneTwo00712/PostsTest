@@ -1,16 +1,25 @@
 import { ref } from "vue";
-import { collection, getDocs } from "firebase/firestore";
+import { collection, onSnapshot, query, orderBy } from "firebase/firestore";
 import { db } from "../firebase/config";
 
 let getPosts = () => {
   let posts = ref([]);
   let error = ref("");
-  let load = async () => {
+
+  let load = () => {
     try {
-      const res = await getDocs(collection(db, "posts"));
-      posts.value = res.docs.map((doc) => {
-        return { ...doc.data(), id: doc.id };
-      });
+      const colRef = collection(db, "posts");
+      onSnapshot(
+        colRef,
+        (snapshot) => {
+          posts.value = snapshot.docs.map((doc) => {
+            return { ...doc.data(), id: doc.id };
+          });
+        },
+        (err) => {
+          error.value = err.message;
+        },
+      );
     } catch (err) {
       error.value = err.message;
     }

@@ -26,7 +26,9 @@ export default {
   setup(props) {
     let { posts, error, load } = getPosts();
     let filteredPosts = computed(() => {
-      return posts.value.filter((post) => post.tags.includes(props.tag));
+      return posts.value.filter((post) => {
+        return post.tags && post.tags.includes(props.tag);
+      });
     });
     load();
     return { posts, error, load, filteredPosts };

@@ -11,7 +11,7 @@
 
     <div class="post-tags">
       <router-link
-        v-for="tag in post.tags"
+        v-for="tag in post.tags || []"
         :key="tag"
         :to="{ name: 'Tag', params: { tag: tag } }"
         class="tag-pill"
@@ -28,9 +28,9 @@ export default {
   props: ["post"],
   setup(props) {
     const cutPostBody = computed(() => {
-      return props.post.body.length > 100
-        ? props.post.body.substring(0, 100) + "..."
-        : props.post.body;
+      const body = props.post.body || "";
+
+      return body.length > 100 ? body.substring(0, 100) + "..." : body;
     });
 
     return { cutPostBody };

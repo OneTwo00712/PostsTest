@@ -43,6 +43,14 @@
         "Winner"
       ],
       "id": "vYaGtuXYOjo"
+    },
+    {
+      "title": "learning about laravel",
+      "body": "this is the beginning of .....",
+      "tags": [
+        "laravel"
+      ],
+      "id": "SET1Og3WS_E"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
