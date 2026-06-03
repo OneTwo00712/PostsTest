@@ -1,16 +1,16 @@
 import { ref } from "vue";
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "../firebase/config";
+
 let getPosts = () => {
   let posts = ref([]);
   let error = ref("");
   let load = async () => {
     try {
-      // await new Promise((resolve) => setTimeout(resolve, 2000));
-      let response = await fetch("http://localhost:3000/posts");
-      if (!response.ok) {
-        throw new Error("Could not fetch the data");
-      }
-      let data = await response.json();
-      posts.value = data;
+      const res = await getDocs(collection(db, "posts"));
+      posts.value = res.docs.map((doc) => {
+        return { ...doc.data(), id: doc.id };
+      });
     } catch (err) {
       error.value = err.message;
     }
