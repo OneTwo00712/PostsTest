@@ -1,6 +1,6 @@
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 import { initializeApp } from "firebase/app";
-import { getFirestore } from "firebase/firestore";
+import { getFirestore, serverTimestamp } from "firebase/firestore";
 const firebaseConfig = {
   apiKey: "AIzaSyDuhpsnuENy5mVh3WWG2tLzoC93y3DsfSc",
   authDomain: "vue-blog-system-7abec.firebaseapp.com",
@@ -13,5 +13,6 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
+const timestamp = serverTimestamp;
 
-export { db };
+export { db, timestamp };

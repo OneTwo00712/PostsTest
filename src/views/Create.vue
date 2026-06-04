@@ -66,7 +66,7 @@
 <script>
 import { ref } from "vue";
 import { useRouter } from "vue-router";
-import { db } from "../firebase/config";
+import { db, timestamp } from "../firebase/config";
 import { collection, addDoc } from "firebase/firestore";
 export default {
   setup() {
@@ -93,8 +93,9 @@ export default {
         title: title.value,
         body: body.value,
         tags: tags.value,
+        createdAt: timestamp(),
       };
-      let res = await addDoc(collection(db, "posts"), newPost);
+      await addDoc(collection(db, "posts"), newPost);
 
       router.push({ name: "home" });
     };

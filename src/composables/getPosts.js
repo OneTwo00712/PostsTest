@@ -8,7 +8,10 @@ let getPosts = () => {
 
   let load = () => {
     try {
-      const colRef = collection(db, "posts");
+      const colRef = query(
+        collection(db, "posts"),
+        orderBy("createdAt", "desc"),
+      );
       onSnapshot(
         colRef,
         (snapshot) => {
